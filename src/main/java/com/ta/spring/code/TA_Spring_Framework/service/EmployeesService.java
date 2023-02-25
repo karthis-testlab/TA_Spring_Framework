@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.ta.spring.code.TA_Spring_Framework.pojo.files.Employees;
 
 @Service
-public class EmployeeService {	
+public class EmployeesService {	
 	
 	public static List<Employees> employees = new ArrayList<Employees>();
 	public static int id = 0;
@@ -25,7 +25,11 @@ public class EmployeeService {
 	public Employees getEmployee(int id) {
 		return employees.stream().filter(emp -> emp.getEmpId() == id).findFirst().orElse(null);
 	}
-	
-	
+
+	public Employees addEmployee(Employees employee) {
+		Employees newEmployee = Employees.builder().empId(++id).empName(employee.getEmpName()).empRole(employee.getEmpRole()).build();
+		employees.add(newEmployee);	
+		return newEmployee;
+	}	
 
 }
