@@ -9,6 +9,6 @@ public class Employees {
 	
 	private @Getter @Setter int empId;
 	private @Getter @Setter String empName;
-	private @Getter @Setter String empRole;	
+	private @Getter @Setter String empRole;
 
 }
