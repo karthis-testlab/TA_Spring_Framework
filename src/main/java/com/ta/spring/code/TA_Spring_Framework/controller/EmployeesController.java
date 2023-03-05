@@ -20,6 +20,8 @@ import com.ta.spring.code.TA_Spring_Framework.pojo.files.Employees;
 import com.ta.spring.code.TA_Spring_Framework.pojo.files.EmployeesV2;
 import com.ta.spring.code.TA_Spring_Framework.service.EmployeesService;
 
+import jakarta.validation.Valid;
+
 
 @RestController
 public class EmployeesController {
@@ -43,7 +45,7 @@ public class EmployeesController {
 	}
 	
 	@PostMapping(path = "/api/add/employee", consumes = {"application/json"}, produces = {"application/json"})
-	public ResponseEntity<Employees> addEmployee(@RequestBody Employees employee) {
+	public ResponseEntity<Employees> addEmployee(@Valid @RequestBody Employees employee) {
 		Employees newEmployee = empService.addEmployee(employee);	
 		if(newEmployee == null) {
 			return ResponseEntity.internalServerError().body(newEmployee);

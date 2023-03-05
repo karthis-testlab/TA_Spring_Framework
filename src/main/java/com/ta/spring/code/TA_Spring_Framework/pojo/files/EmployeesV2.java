@@ -7,7 +7,8 @@ import lombok.Setter;
 @Builder
 public class EmployeesV2 {
 	
-	private @Getter @Setter int empId;
+	
+	private @Getter @Setter int empId;	
 	private @Getter @Setter String empName;
 	private @Getter @Setter String empRole;	
 	private @Getter @Setter Address address;	
